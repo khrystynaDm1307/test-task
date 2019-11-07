@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card text-center mt-2" *ngFor="let article of articles">
+    <div class="card-body">
+      <h5 class="card-title">{{article.name}}</h5>
+      <p class="card-text">{{article.label}}</p>
+      <h4>{{article.price}}</h4>
+      <button class="btn btn-success" (click)="addToBag(article)">Add to bag</button>
+    </div>
+  </div>
+</div>

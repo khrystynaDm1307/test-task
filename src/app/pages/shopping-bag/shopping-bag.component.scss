@@ -1,0 +1,20 @@
+.card{
+    margin-top: 10%;
+}
+.container{
+    width: 80%;
+    margin: 20px auto;
+    @media screen and (max-width: 500px) {
+       width: 100%;
+      }
+      @media screen and (max-width: 430px) {
+        overflow-x: scroll;
+       }
+}
+input{
+    width: 60px;
+}
+.card-body h2{
+    text-align: right;
+}
+

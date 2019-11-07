@@ -1,0 +1,42 @@
+<!-- when bag is empty -->
+<div class="card text-center" *ngIf="!shopArticles.length">
+    <div class="card-header">Ooops...</div>
+    <div class="card-body">
+        <h5 class="card-title">Your shopping bag is empty :(</h5>
+        <a routerLink="home" class="btn btn-warning">Buy something!</a>
+    </div>
+</div>
+
+<!-- when bag is full -->
+<div class="container" *ngIf="shopArticles.length">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Article</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">All</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let article of shopArticles;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{article.obj.name}}</td>
+                <td>{{article.obj.price}}</td>
+                <td>
+                    <form><input type="number" class="form-control" [(ngModel)]="article.quantity"
+                            name="article.quantity" (change)="changeQt(i)"></form>
+                </td>
+                <td>{{article.obj.price*article.quantity}}</td>
+                <td> <button type="button" class="btn btn-danger" (click)="deleteArticle(i)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="card">
+        <div class="card-body">
+            <h2>All: {{all}}</h2>
+        </div>
+    </div>
+</div>
